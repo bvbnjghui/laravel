@@ -76,7 +76,8 @@ class ProfileController extends Controller
 
     private function accessible($user){
         $current_user = auth()->user();
-        if('admin' === $current_user->role || $current_user === $user){
+        
+        if('admin' === $current_user->role || $current_user->id === $user->id){
             return true;
         }
         return false;
